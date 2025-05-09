@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
@@ -9,24 +8,13 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
 import TechCarousel from '../components/TechCarousel';
 import TechIcon from '../components/TechIcon';
-
-// Extended tech list
-const allTechs = [
-  'React', 'Next.js', 'TypeScript', 'Node.js', 
-  'Laravel', 'PHP', 'JavaScript', 'Docker', 
-  'AWS', 'GraphQL', 'MySQL', 'PostgreSQL',
-  'MongoDB', 'Redis', 'Tailwind', 'Sass',
-  'Vue.js', 'Express', 'Git', 'CI/CD',
-  'Jest', 'Adonis.js', 'Nest.js', 'Nginx',
-  'Docker', 'Redis', 'Firebase', 'Vite',
-  'Github', 'RabbitMQ'
-].sort(() => Math.random() - 0.5);
+import { techIconsConfig } from '@/lib/tech-icons';
 
 const Home = () => {
   const { t } = useLocale();
   const isMobile = useIsMobile();
-  const [techs, setTechs] = useState(allTechs);
-  
+  const [techs] = useState(Object.keys(techIconsConfig).sort(() => Math.random() - 0.5));
+
   const roles = [
     t('home.role.web'),
     t('home.role.back'),
@@ -38,7 +26,6 @@ const Home = () => {
       <section className="container mx-auto px-4 py-20">
         <div className="max-w-3xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-            {/* Text Content */}
             <div className="space-y-6 order-2 md:order-1 animate-fade-in text-center md:text-left">
               <div className="space-y-1">
                 <h2 className="text-xl font-medium text-muted-foreground">
@@ -67,7 +54,6 @@ const Home = () => {
                 </Button>
               </div>
               
-              {/* Social Links */}
               <div className="flex space-x-4 pt-4 justify-center md:justify-start">
                 <a 
                   href="https://github.com/tharlei" 
@@ -94,7 +80,6 @@ const Home = () => {
               </div>
             </div>
             
-            {/* Profile Image - Always display on both mobile and desktop */}
             <div className="flex justify-center order-1 md:order-2">
               <div className="relative h-64 w-64 md:h-72 md:w-72 rounded-full overflow-hidden border-4 border-primary/20">
                 <img
@@ -106,7 +91,6 @@ const Home = () => {
             </div>
           </div>
           
-          {/* Technologies Carousel Section */}
           <div className="mt-20">
             <h3 className="text-center text-lg font-medium text-muted-foreground mb-6">
               {t('home.technologies')}
@@ -122,11 +106,11 @@ const Home = () => {
                     className="flex items-center p-2 bg-accent/50 rounded-lg text-accent-foreground"
                   >
                     <TechIcon name={tech} size={16} className="mr-2" />
-                    <span className="text-sm">{tech}</span>
+                    <span className="text-sm">{techIconsConfig[tech].name}</span>
                   </div>
                 ))}
                 <div className="flex items-center p-2 bg-primary/20 rounded-lg text-primary">
-                  <span className="text-sm">+{techs.length - 8} more</span>
+                  <span className="text-sm">+{techs.length - 8} {t('home.more')}</span>
                 </div>
               </div>
             </div>

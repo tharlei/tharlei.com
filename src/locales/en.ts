@@ -1,4 +1,3 @@
-
 export const en = {
   'nav.home': 'Home',
   'nav.projects': 'Projects',
@@ -11,6 +10,7 @@ export const en = {
   'home.role.front': 'front developer',
   'home.technologies': 'Technologies I work with',
   'home.bio': 'I\'m a software developer passionate about creating robust and scalable web applications.',
+  'home.more': 'more',
   'about.title': 'About Me',
   'about.subtitle': 'Background, skills, and experience',
   'about.bio.title': 'About Me',

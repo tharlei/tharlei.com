@@ -1,4 +1,3 @@
-
 export const pt = {
   'nav.home': 'Início',
   'nav.projects': 'Projetos',
@@ -11,6 +10,7 @@ export const pt = {
   'home.role.front': 'desenvolvedor front-end',
   'home.technologies': 'Tecnologias com as quais trabalho',
   'home.bio': 'Sou um desenvolvedor de software apaixonado por criar aplicações web robustas e escaláveis.',
+  'home.more': 'tecnologias',
   'about.title': 'Sobre Mim',
   'about.subtitle': 'Background, habilidades e experiência',
   'about.bio.title': 'Sobre Mim',

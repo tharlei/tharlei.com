@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import TechIcon from './TechIcon';
+import { techIconsConfig } from '@/lib/tech-icons';
 
 interface TechCarouselProps {
   technologies: string[];
@@ -14,10 +14,8 @@ const TechCarousel: React.FC<TechCarouselProps> = ({ technologies, className }) 
   
   useEffect(() => {
     const intervalId = setInterval(() => {
-      // Set to null briefly for a fade out effect
       setVisibleTech(null);
       
-      // After a short delay, change to the next tech
       setTimeout(() => {
         setIndex(prevIndex => (prevIndex + 1) % technologies.length);
         setVisibleTech(technologies[(index + 1) % technologies.length]);
@@ -41,7 +39,7 @@ const TechCarousel: React.FC<TechCarouselProps> = ({ technologies, className }) 
           <div className="text-3xl mb-2">
             <TechIcon name={visibleTech} size={40} className="text-primary" />
           </div>
-          <div className="text-lg font-medium">{visibleTech}</div>
+          <div className="text-lg font-medium">{techIconsConfig[visibleTech].name}</div>
         </motion.div>
       )}
     </div>
