@@ -1,5 +1,5 @@
 
-import React, { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Layout from '../components/layout/Layout';
 import TypedText from '../components/TypedText';
@@ -17,28 +17,15 @@ const allTechs = [
   'AWS', 'GraphQL', 'MySQL', 'PostgreSQL',
   'MongoDB', 'Redis', 'Tailwind', 'Sass',
   'Vue.js', 'Express', 'Git', 'CI/CD',
-  'Jest', 'React Native', 'WebSockets', 'REST API'
-];
+  'Jest', 'Adonis.js', 'Nest.js', 'Nginx',
+  'Docker', 'Redis', 'Firebase', 'Vite',
+  'Github', 'RabbitMQ'
+].sort(() => Math.random() - 0.5);
 
-// Fisher-Yates shuffle algorithm
-const shuffleArray = (array) => {
-  const newArray = [...array];
-  for (let i = newArray.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [newArray[i], newArray[j]] = [newArray[j], newArray[i]];
-  }
-  return newArray;
-};
-
-const Index = () => {
+const Home = () => {
   const { t } = useLocale();
   const isMobile = useIsMobile();
   const [techs, setTechs] = useState(allTechs);
-  
-  useEffect(() => {
-    // Shuffle technologies on page load
-    setTechs(shuffleArray(allTechs));
-  }, []);
   
   const roles = [
     t('home.role.web'),
@@ -110,15 +97,11 @@ const Index = () => {
             {/* Profile Image - Always display on both mobile and desktop */}
             <div className="flex justify-center order-1 md:order-2">
               <div className="relative h-64 w-64 md:h-72 md:w-72 rounded-full overflow-hidden border-4 border-primary/20">
-                <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-background flex items-center justify-center text-4xl font-bold">
-                  T
-                </div>
-                {/* If you have a profile image, use this instead: */}
-                {/* <img
-                  src="/profile-image.jpg"
+                <img
+                  src="/selfie.jpg"
                   alt="Tharlei"
                   className="w-full h-full object-cover"
-                /> */}
+                />
               </div>
             </div>
           </div>
@@ -154,4 +137,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default Home;
