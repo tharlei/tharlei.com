@@ -1,5 +1,3 @@
-import { siteConfig } from '@/config/site';
-
 export interface ProfessionalProject {
   id: number;
   name: string;

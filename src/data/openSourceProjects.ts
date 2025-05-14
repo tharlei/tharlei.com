@@ -1,5 +1,3 @@
-import { siteConfig } from '@/config/site';
-
 export interface OpenSourceProject {
   id: number;
   name: string;
