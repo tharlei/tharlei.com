@@ -9,14 +9,18 @@ export const pt = {
   'home.role.back': 'desenvolvedor back-end',
   'home.role.front': 'desenvolvedor front-end',
   'home.technologies': 'Tecnologias com as quais trabalho',
-  'home.bio': 'Sou um desenvolvedor de software apaixonado por criar aplicações web robustas e escaláveis.',
+  'home.bio':
+    'Sou um desenvolvedor de software apaixonado por criar aplicações web robustas e escaláveis.',
   'home.more': 'tecnologias',
   'about.title': 'Sobre Mim',
   'about.subtitle': 'Background, habilidades e experiência',
   'about.bio.title': 'Sobre Mim',
-  'about.bio.p1': 'Olá! Sou Tharlei, um desenvolvedor de software apaixonado com expertise em desenvolvimento web.',
-  'about.bio.p2': 'Com vários anos de experiência em desenvolvimento tanto frontend quanto backend, trabalhei em diversos projetos, desde aplicações para pequenas empresas até soluções empresariais de grande escala.',
-  'about.bio.p3': 'Quando não estou codificando, gosto de contribuir para projetos de código aberto, compartilhar conhecimento com a comunidade de desenvolvedores e explorar novas tecnologias.',
+  'about.bio.p1':
+    'Olá! Sou Tharlei, um desenvolvedor de software apaixonado com expertise em desenvolvimento web.',
+  'about.bio.p2':
+    'Com vários anos de experiência em desenvolvimento tanto frontend quanto backend, trabalhei em diversos projetos, desde aplicações para pequenas empresas até soluções empresariais de grande escala.',
+  'about.bio.p3':
+    'Quando não estou codificando, gosto de contribuir para projetos de código aberto, compartilhar conhecimento com a comunidade de desenvolvedores e explorar novas tecnologias.',
   'about.skills': 'Habilidades & Especialidades',
   'about.timeline': 'Carreira',
   'about.getInTouch': 'Entre em Contato',
@@ -41,7 +45,8 @@ export const pt = {
   'contact.success': 'Sua mensagem foi enviada!',
   'contact.error': 'Algo deu errado. Por favor, tente novamente.',
   'contact.getInTouch': 'Entre em Contato',
-  'contact.reachOut': 'Sinta-se à vontade para entrar em contato se tiver alguma pergunta, consulta de projeto ou apenas quiser se conectar!',
+  'contact.reachOut':
+    'Sinta-se à vontade para entrar em contato se tiver alguma pergunta, consulta de projeto ou apenas quiser se conectar!',
   'contact.emailLabel': 'Email',
   'contact.connect': 'Conectar',
   'contact.connectText': 'Você também pode me encontrar nestas plataformas:',
@@ -50,11 +55,14 @@ export const pt = {
   // Experiências profissionais
   'work.techCompany.title': 'Desenvolvedor de Software Sênior',
   'work.techCompany.name': 'Tech Company Inc.',
-  'work.techCompany.description': 'Liderando o desenvolvimento de aplicações web usando React, Node.js e infraestrutura de nuvem moderna. Mentorando desenvolvedores júnior e implementando melhores práticas em projetos.',
+  'work.techCompany.description':
+    'Liderando o desenvolvimento de aplicações web usando React, Node.js e infraestrutura de nuvem moderna. Mentorando desenvolvedores júnior e implementando melhores práticas em projetos.',
   'work.digitalSolutions.title': 'Desenvolvedor Full Stack',
   'work.digitalSolutions.name': 'Digital Solutions Ltda.',
-  'work.digitalSolutions.description': 'Desenvolvi e mantive aplicações web usando Laravel, PHP e Vue.js. Implementei otimizações de banco de dados e integrações de API para vários projetos de clientes.',
+  'work.digitalSolutions.description':
+    'Desenvolvi e mantive aplicações web usando Laravel, PHP e Vue.js. Implementei otimizações de banco de dados e integrações de API para vários projetos de clientes.',
   'work.creativeWeb.title': 'Desenvolvedor Web',
   'work.creativeWeb.name': 'Agência Web Criativa',
-  'work.creativeWeb.description': 'Construí sites responsivos e soluções de e-commerce usando tecnologias web modernas. Colaborei com designers para implementar melhorias de UI/UX.',
+  'work.creativeWeb.description':
+    'Construí sites responsivos e soluções de e-commerce usando tecnologias web modernas. Colaborei com designers para implementar melhorias de UI/UX.',
 };

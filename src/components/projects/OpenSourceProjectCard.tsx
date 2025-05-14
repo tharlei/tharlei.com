@@ -1,11 +1,20 @@
+import { Github } from 'lucide-react';
 
 import React from 'react';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+
 import { Button } from '@/components/ui/button';
-import { Github } from 'lucide-react';
-import TechIcon from '../TechIcon';
-import AnimatedCard from '../AnimatedCard';
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
+
 import { useLocale } from '../../contexts/LocaleContext';
+import AnimatedCard from '../AnimatedCard';
+import TechIcon from '../TechIcon';
 
 export interface OpenSourceProject {
   id: number;
@@ -24,47 +33,44 @@ interface OpenSourceProjectCardProps {
 
 const OpenSourceProjectCard: React.FC<OpenSourceProjectCardProps> = ({ project, index }) => {
   const { t } = useLocale();
-  
+
   return (
     <AnimatedCard key={project.id} delay={index}>
-      <Card className="overflow-hidden hover:shadow-md transition-shadow">
+      <Card className="overflow-hidden transition-shadow hover:shadow-md">
         <CardHeader className="flex flex-row items-start justify-between space-y-0">
           <div>
-            <CardTitle className="flex items-center gap-2">
-              {project.name}
-            </CardTitle>
-            <CardDescription className="text-sm font-mono mt-1">
-              {project.repo}
-            </CardDescription>
+            <CardTitle className="flex items-center gap-2">{project.name}</CardTitle>
+            <CardDescription className="mt-1 font-mono text-sm">{project.repo}</CardDescription>
           </div>
           <Button size="sm" variant="outline" className="h-8" asChild>
             <a href={project.link} target="_blank" rel="noopener noreferrer">
-              <Github className="h-4 w-4 mr-2" /> {t('projects.viewRepo')}
+              <Github className="mr-2 h-4 w-4" /> {t('projects.viewRepo')}
             </a>
           </Button>
         </CardHeader>
-        
+
         <CardContent>
-          <p className="text-muted-foreground mb-3">
-            {project.description}
-          </p>
-          
+          <p className="mb-3 text-muted-foreground">{project.description}</p>
+
           <div className="mb-4">
-            <div className="text-sm font-medium mb-2">{t('projects.contributions')}</div>
+            <div className="mb-2 text-sm font-medium">{t('projects.contributions')}</div>
             <div className="flex flex-wrap gap-2">
               {project.contributions.map((contribution, i) => (
-                <div key={i} className="bg-primary/10 text-primary text-xs px-2 py-1 rounded-full">
+                <div key={i} className="rounded-full bg-primary/10 px-2 py-1 text-xs text-primary">
                   {contribution}
                 </div>
               ))}
             </div>
           </div>
-          
+
           <div>
-            <div className="text-sm font-medium mb-2">{t('projects.technologies')}:</div>
+            <div className="mb-2 text-sm font-medium">{t('projects.technologies')}:</div>
             <div className="flex flex-wrap gap-2">
-              {project.technologies.map((tech) => (
-                <div key={tech} className="text-xs px-2 py-1 bg-accent rounded-full flex items-center">
+              {project.technologies.map(tech => (
+                <div
+                  key={tech}
+                  className="flex items-center rounded-full bg-accent px-2 py-1 text-xs"
+                >
                   <TechIcon name={tech} size={12} className="mr-1" />
                   {tech}
                 </div>

@@ -1,14 +1,16 @@
+import { Mail, Send } from 'lucide-react';
+import { toast } from 'sonner';
 
 import React, { useState } from 'react';
+
+import { Button } from '@/components/ui/button';
+import { Card, CardContent } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+
 import Layout from '../components/layout/Layout';
 import { useLocale } from '../contexts/LocaleContext';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Card, CardContent } from '@/components/ui/card';
-import { toast } from 'sonner';
-import { Mail, Send } from 'lucide-react';
 
 const Contact = () => {
   const { t } = useLocale();
@@ -19,11 +21,9 @@ const Contact = () => {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e: React.FormEvent) => {
@@ -32,11 +32,11 @@ const Contact = () => {
 
     try {
       // Simulate form submission - in a real app, you'd send this to an API
-      await new Promise((resolve) => setTimeout(resolve, 1500));
-      
+      await new Promise(resolve => setTimeout(resolve, 1500));
+
       // Show success message
       toast.success(t('contact.success'));
-      
+
       // Reset form
       setFormData({
         name: '',
@@ -54,50 +54,39 @@ const Contact = () => {
   return (
     <Layout>
       <section className="container mx-auto px-4 py-16">
-        <div className="max-w-3xl mx-auto">
+        <div className="mx-auto max-w-3xl">
           {/* Header */}
           <div className="mb-12 text-center">
-            <h1 className="text-3xl font-bold mb-3">{t('contact.title')}</h1>
+            <h1 className="mb-3 text-3xl font-bold">{t('contact.title')}</h1>
             <p className="text-muted-foreground">{t('contact.subtitle')}</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+          <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
             {/* Contact Info */}
             <div className="space-y-6">
               <h2 className="text-2xl font-semibold">{t('contact.getInTouch')}</h2>
-              <p className="text-muted-foreground">
-                {t('contact.reachOut')}
-              </p>
-              
+              <p className="text-muted-foreground">{t('contact.reachOut')}</p>
+
               <Card>
-                <CardContent className="p-6 flex items-start space-x-4">
-                  <div className="bg-primary/10 p-3 rounded-full">
+                <CardContent className="flex items-start space-x-4 p-6">
+                  <div className="rounded-full bg-primary/10 p-3">
                     <Mail className="h-6 w-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-medium">{t('contact.emailLabel')}</h3>
-                    <a
-                      href="mailto:contact@tharlei.dev"
-                      className="text-primary hover:underline"
-                    >
+                    <a href="mailto:contact@tharlei.dev" className="text-primary hover:underline">
                       contact@tharlei.dev
                     </a>
                   </div>
                 </CardContent>
               </Card>
-              
+
               <div className="mt-6">
-                <h3 className="text-lg font-medium mb-3">{t('contact.connect')}</h3>
-                <p className="text-muted-foreground mb-4">
-                  {t('contact.connectText')}
-                </p>
+                <h3 className="mb-3 text-lg font-medium">{t('contact.connect')}</h3>
+                <p className="mb-4 text-muted-foreground">{t('contact.connectText')}</p>
                 <div className="flex space-x-4">
                   <Button variant="outline" asChild>
-                    <a
-                      href="https://github.com/tharlei"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                    <a href="https://github.com/tharlei" target="_blank" rel="noopener noreferrer">
                       GitHub
                     </a>
                   </Button>
@@ -113,7 +102,7 @@ const Contact = () => {
                 </div>
               </div>
             </div>
-            
+
             {/* Contact Form */}
             <div>
               <Card>
@@ -129,7 +118,7 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="email">{t('contact.email')}</Label>
                       <Input
@@ -141,7 +130,7 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    
+
                     <div className="space-y-2">
                       <Label htmlFor="message">{t('contact.message')}</Label>
                       <Textarea
@@ -153,12 +142,12 @@ const Contact = () => {
                         required
                       />
                     </div>
-                    
+
                     <Button type="submit" className="w-full" disabled={isSubmitting}>
                       {isSubmitting ? (
                         <div className="flex items-center">
                           <span className="mr-2">{t('contact.sending')}</span>
-                          <div className="animate-spin h-4 w-4 border-2 border-primary/30 border-t-primary rounded-full"></div>
+                          <div className="h-4 w-4 animate-spin rounded-full border-2 border-primary/30 border-t-primary"></div>
                         </div>
                       ) : (
                         <div className="flex items-center">

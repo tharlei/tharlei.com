@@ -1,9 +1,11 @@
-
 import React, { useEffect, useState } from 'react';
-import Header from './Header';
-import Footer from './Footer';
-import { cn } from '@/lib/utils';
+
 import { Progress } from '@/components/ui/progress';
+
+import { cn } from '@/lib/utils';
+
+import Footer from './Footer';
+import Header from './Header';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -34,8 +36,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
   // Observer for body class changes
   useEffect(() => {
-    const observer = new MutationObserver((mutations) => {
-      mutations.forEach((mutation) => {
+    const observer = new MutationObserver(mutations => {
+      mutations.forEach(mutation => {
         if (mutation.attributeName === 'class') {
           const hasTransitionClass = document.body.classList.contains('page-transitioning');
           setLoading(hasTransitionClass);
@@ -44,22 +46,24 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     });
 
     observer.observe(document.body, { attributes: true });
-    
+
     return () => observer.disconnect();
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex min-h-screen flex-col">
       <Header />
       {loading && (
-        <div className="fixed top-0 left-0 w-full z-50">
-          <Progress value={100} className="w-full h-1" />
+        <div className="fixed left-0 top-0 z-50 w-full">
+          <Progress value={100} className="h-1 w-full" />
         </div>
       )}
-      <main className={cn(
-        "flex-1 w-full max-w-full overflow-x-hidden animate-page-transition",
-        loading && "opacity-70 transition-opacity duration-300"
-      )}>
+      <main
+        className={cn(
+          'w-full max-w-full flex-1 animate-page-transition overflow-x-hidden',
+          loading && 'opacity-70 transition-opacity duration-300'
+        )}
+      >
         {children}
       </main>
       <Footer />

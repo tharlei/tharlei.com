@@ -1,7 +1,10 @@
-import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import TechIcon from './TechIcon';
+
+import React, { useEffect, useState } from 'react';
+
 import { techIconsConfig } from '@/lib/tech-icons';
+
+import TechIcon from './TechIcon';
 
 interface TechCarouselProps {
   technologies: string[];
@@ -11,22 +14,22 @@ interface TechCarouselProps {
 const TechCarousel: React.FC<TechCarouselProps> = ({ technologies, className }) => {
   const [visibleTech, setVisibleTech] = useState<string | null>(technologies[0]);
   const [index, setIndex] = useState(0);
-  
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setVisibleTech(null);
-      
+
       setTimeout(() => {
         setIndex(prevIndex => (prevIndex + 1) % technologies.length);
         setVisibleTech(technologies[(index + 1) % technologies.length]);
       }, 300);
     }, 2000);
-    
+
     return () => clearInterval(intervalId);
   }, [index, technologies]);
-  
+
   return (
-    <div className={`flex flex-col items-center justify-center h-24 ${className || ''}`}>
+    <div className={`flex h-24 flex-col items-center justify-center ${className || ''}`}>
       {visibleTech && (
         <motion.div
           key={visibleTech}
@@ -36,7 +39,7 @@ const TechCarousel: React.FC<TechCarouselProps> = ({ technologies, className }) 
           transition={{ duration: 0.3 }}
           className="flex flex-col items-center"
         >
-          <div className="text-3xl mb-2">
+          <div className="mb-2 text-3xl">
             <TechIcon name={visibleTech} size={40} className="text-primary" />
           </div>
           <div className="text-lg font-medium">{techIconsConfig[visibleTech].name}</div>

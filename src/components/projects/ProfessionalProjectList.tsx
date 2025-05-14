@@ -1,9 +1,10 @@
-
 import React from 'react';
+
 import { Button } from '@/components/ui/button';
-import ProfessionalProjectCard from './ProfessionalProjectCard';
-import { ProfessionalProject } from '../../data/professionalProjects';
+
 import { useLocale } from '../../contexts/LocaleContext';
+import { ProfessionalProject } from '../../data/professionalProjects';
+import ProfessionalProjectCard from './ProfessionalProjectCard';
 
 interface ProfessionalProjectListProps {
   projects: ProfessionalProject[];
@@ -11,10 +12,10 @@ interface ProfessionalProjectListProps {
   clearFilter: () => void;
 }
 
-const ProfessionalProjectList: React.FC<ProfessionalProjectListProps> = ({ 
-  projects, 
+const ProfessionalProjectList: React.FC<ProfessionalProjectListProps> = ({
+  projects,
   companyFilter,
-  clearFilter
+  clearFilter,
 }) => {
   const { t } = useLocale();
 
@@ -22,23 +23,15 @@ const ProfessionalProjectList: React.FC<ProfessionalProjectListProps> = ({
     <>
       {companyFilter && (
         <div className="mb-6">
-          <Button 
-            variant="link" 
-            onClick={clearFilter}
-            className="px-0"
-          >
+          <Button variant="link" onClick={clearFilter} className="px-0">
             ← {t('projects.allCompanies')}
           </Button>
         </div>
       )}
-      
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+      <div className="grid grid-cols-1 gap-8 md:grid-cols-2">
         {projects.map((project, index) => (
-          <ProfessionalProjectCard 
-            key={project.id} 
-            project={project} 
-            index={index} 
-          />
+          <ProfessionalProjectCard key={project.id} project={project} index={index} />
         ))}
       </div>
     </>

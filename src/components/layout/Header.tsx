@@ -1,29 +1,22 @@
+import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import React from 'react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useLocale } from '../../contexts/LocaleContext';
-import { useTheme } from '../../contexts/ThemeContext';
+
 import { Button } from '@/components/ui/button';
-import { Moon, Sun, Menu, X } from 'lucide-react';
-import { useIsMobile } from '@/hooks/use-mobile';
-import {
-  Tooltip,
-  TooltipContent,
-  TooltipProvider,
-  TooltipTrigger,
-} from "@/components/ui/tooltip";
+import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
-import {
-  Drawer,
-  DrawerContent,
-  DrawerTrigger,
-  DrawerClose,
-} from "@/components/ui/drawer";
+} from '@/components/ui/dropdown-menu';
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
+
+import { useIsMobile } from '@/hooks/use-mobile';
+
+import { useLocale } from '../../contexts/LocaleContext';
+import { useTheme } from '../../contexts/ThemeContext';
 
 const Header: React.FC = () => {
   const { locale, setLocale, t } = useLocale();
@@ -52,19 +45,21 @@ const Header: React.FC = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-sm bg-background/80 border-b">
-      <div className="container mx-auto px-4 py-3 flex items-center justify-between">
-        <Link to="/" className="text-xl font-bold tracking-tighter">Tharlei</Link>
-        
+    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
+      <div className="container mx-auto flex items-center justify-between px-4 py-3">
+        <Link to="/" className="text-xl font-bold tracking-tighter">
+          Tharlei
+        </Link>
+
         {/* Desktop Navigation */}
         {!isMobile && (
           <nav className="flex space-x-6">
             {navLinks.map(link => (
-              <Link 
-                key={link.path} 
+              <Link
+                key={link.path}
                 to={link.path}
-                className="hover:text-primary transition-colors"
-                onClick={(e) => {
+                className="transition-colors hover:text-primary"
+                onClick={e => {
                   if (location.pathname !== link.path) {
                     e.preventDefault();
                     handleNavigation(link.path);
@@ -76,30 +71,30 @@ const Header: React.FC = () => {
             ))}
           </nav>
         )}
-        
+
         <div className="flex items-center space-x-2">
           {/* Language Switcher with improved dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button 
-                variant="ghost" 
-                size="icon" 
-                className="h-9 w-9 rounded-md overflow-hidden p-0 flex items-center justify-center hover:bg-accent"
+              <Button
+                variant="ghost"
+                size="icon"
+                className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md p-0 hover:bg-accent"
               >
                 <span className="text-base">{locale === 'en' ? '🇺🇸' : '🇧🇷'}</span>
               </Button>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-40">
-              <DropdownMenuItem 
-                className="flex items-center gap-2 cursor-pointer"
+              <DropdownMenuItem
+                className="flex cursor-pointer items-center gap-2"
                 onClick={() => setLocale('en')}
               >
                 <span className="text-base">🇺🇸</span>
                 <span>English</span>
                 {locale === 'en' && <span className="ml-auto">✓</span>}
               </DropdownMenuItem>
-              <DropdownMenuItem 
-                className="flex items-center gap-2 cursor-pointer"
+              <DropdownMenuItem
+                className="flex cursor-pointer items-center gap-2"
                 onClick={() => setLocale('pt')}
               >
                 <span className="text-base">🇧🇷</span>
@@ -108,16 +103,12 @@ const Header: React.FC = () => {
               </DropdownMenuItem>
             </DropdownMenuContent>
           </DropdownMenu>
-          
+
           {/* Theme Toggle */}
           <Button variant="ghost" size="icon" onClick={toggleTheme}>
-            {theme === 'dark' ? (
-              <Sun className="h-4 w-4" />
-            ) : (
-              <Moon className="h-4 w-4" />
-            )}
+            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
           </Button>
-          
+
           {/* Mobile Menu Button with Drawer */}
           {isMobile && (
             <Drawer direction="right">
@@ -126,9 +117,9 @@ const Header: React.FC = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </DrawerTrigger>
-              <DrawerContent direction="right" className="w-[280px] right-0 left-auto rounded-l-lg">
+              <DrawerContent direction="right" className="left-auto right-0 w-[280px] rounded-l-lg">
                 <div className="px-4 py-6">
-                  <div className="flex items-center justify-between mb-6">
+                  <div className="mb-6 flex items-center justify-between">
                     <h3 className="text-lg font-medium">Menu</h3>
                     <DrawerClose asChild>
                       <Button variant="ghost" size="icon">

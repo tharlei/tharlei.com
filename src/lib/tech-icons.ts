@@ -12,173 +12,173 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
   react: {
     type: 'svg',
     name: 'React',
-    slug: 'react'
+    slug: 'react',
   },
   next: {
     type: 'svg',
     name: 'Next.js',
-    slug: 'nextdotjs'
+    slug: 'nextdotjs',
   },
   nuxt: {
     type: 'svg',
     name: 'Nuxt.js',
-    slug: 'nuxt'
+    slug: 'nuxt',
   },
   vue: {
     type: 'svg',
     name: 'Vue.js',
-    slug: 'vuedotjs'
+    slug: 'vuedotjs',
   },
   typescript: {
     type: 'svg',
     name: 'TypeScript',
-    slug: 'typescript'
+    slug: 'typescript',
   },
   javascript: {
     type: 'svg',
     name: 'JavaScript',
-    slug: 'javascript'
+    slug: 'javascript',
   },
   tailwind: {
     type: 'svg',
     name: 'Tailwind CSS',
-    slug: 'tailwindcss'
+    slug: 'tailwindcss',
   },
 
   // Backend
   node: {
     type: 'svg',
     name: 'Node.js',
-    slug: 'nodedotjs'
+    slug: 'nodedotjs',
   },
   nest: {
     type: 'svg',
     name: 'NestJS',
-    slug: 'nestjs'
+    slug: 'nestjs',
   },
   php: {
     type: 'svg',
     name: 'PHP',
-    slug: 'php'
+    slug: 'php',
   },
   laravel: {
     type: 'svg',
     name: 'Laravel',
-    slug: 'laravel'
+    slug: 'laravel',
   },
   adonis: {
     type: 'svg',
     name: 'AdonisJS',
-    slug: 'adonisjs'
+    slug: 'adonisjs',
   },
 
   // Databases
   mysql: {
     type: 'svg',
     name: 'MySQL',
-    slug: 'mysql'
+    slug: 'mysql',
   },
   postgres: {
     type: 'svg',
     name: 'PostgreSQL',
-    slug: 'postgresql'
+    slug: 'postgresql',
   },
   mongodb: {
     type: 'svg',
     name: 'MongoDB',
-    slug: 'mongodb'
+    slug: 'mongodb',
   },
   firebase: {
     type: 'svg',
     name: 'Firebase',
-    slug: 'firebase'
+    slug: 'firebase',
   },
   redis: {
     type: 'svg',
     name: 'Redis',
-    slug: 'redis'
+    slug: 'redis',
   },
   elasticsearch: {
     type: 'svg',
     name: 'Elasticsearch',
-    slug: 'elasticsearch'
+    slug: 'elasticsearch',
   },
 
   // APIs & Tools
   graphql: {
     type: 'svg',
     name: 'GraphQL',
-    slug: 'graphql'
+    slug: 'graphql',
   },
   postman: {
     type: 'svg',
     name: 'Postman',
-    slug: 'postman'
+    slug: 'postman',
   },
   nginx: {
     type: 'svg',
     name: 'Nginx',
-    slug: 'nginx'
+    slug: 'nginx',
   },
 
   // Cloud & DevOps
   aws: {
     type: 'svg',
     name: 'AWS',
-    slug: 'amazon'
+    slug: 'amazon',
   },
   gcp: {
     type: 'svg',
     name: 'Google Cloud',
-    slug: 'googlecloud'
+    slug: 'googlecloud',
   },
   docker: {
     type: 'svg',
     name: 'Docker',
-    slug: 'docker'
+    slug: 'docker',
   },
   heroku: {
     type: 'svg',
     name: 'Heroku',
-    slug: 'heroku'
+    slug: 'heroku',
   },
   digitalocean: {
     type: 'svg',
     name: 'Digital Ocean',
-    slug: 'digitalocean'
+    slug: 'digitalocean',
   },
   github: {
     type: 'svg',
     name: 'GitHub',
-    slug: 'github'
+    slug: 'github',
   },
   git: {
     type: 'svg',
     name: 'Git',
-    slug: 'git'
+    slug: 'git',
   },
 
   // Testing
   jest: {
     type: 'svg',
     name: 'Jest',
-    slug: 'jest'
+    slug: 'jest',
   },
   vitest: {
     type: 'svg',
     name: 'Vitest',
-    slug: 'vitest'
+    slug: 'vitest',
   },
 
   // Monitoring
   datadog: {
     type: 'svg',
     name: 'Datadog',
-    slug: 'datadog'
+    slug: 'datadog',
   },
   rabbitmq: {
     type: 'svg',
     name: 'RabbitMQ',
-    slug: 'rabbitmq'
-  }
-}; 
+    slug: 'rabbitmq',
+  },
+};

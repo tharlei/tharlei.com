@@ -1,18 +1,20 @@
+import { Home } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import Layout from '../components/layout/Layout';
+
 import { Button } from '@/components/ui/button';
-import { Home } from 'lucide-react';
+
+import Layout from '../components/layout/Layout';
 
 const NotFound = () => {
   return (
     <Layout>
-      <section className="container mx-auto px-4 py-24 flex items-center justify-center">
-        <div className="max-w-md w-full text-center">
+      <section className="container mx-auto flex items-center justify-center px-4 py-24">
+        <div className="w-full max-w-md text-center">
           <h1 className="text-7xl font-bold">404</h1>
-          <h2 className="text-2xl font-semibold mt-4">Page Not Found</h2>
-          <p className="text-muted-foreground mt-2 mb-8">
+          <h2 className="mt-4 text-2xl font-semibold">Page Not Found</h2>
+          <p className="mb-8 mt-2 text-muted-foreground">
             The page you are looking for doesn't exist or has been moved.
           </p>
           <Button asChild>

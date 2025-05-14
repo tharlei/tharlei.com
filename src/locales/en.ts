@@ -9,14 +9,18 @@ export const en = {
   'home.role.back': 'back developer',
   'home.role.front': 'front developer',
   'home.technologies': 'Technologies I work with',
-  'home.bio': 'I\'m a software developer passionate about creating robust and scalable web applications.',
+  'home.bio':
+    "I'm a software developer passionate about creating robust and scalable web applications.",
   'home.more': 'more',
   'about.title': 'About Me',
   'about.subtitle': 'Background, skills, and experience',
   'about.bio.title': 'About Me',
-  'about.bio.p1': 'Hello! I\'m Tharlei, a passionate software developer with expertise in web development.',
-  'about.bio.p2': 'With several years of experience in both frontend and backend development, I\'ve worked on various projects ranging from small business applications to large-scale enterprise solutions.',
-  'about.bio.p3': 'When I\'m not coding, I enjoy contributing to open-source projects, sharing knowledge with the developer community, and exploring new technologies.',
+  'about.bio.p1':
+    "Hello! I'm Tharlei, a passionate software developer with expertise in web development.",
+  'about.bio.p2':
+    "With several years of experience in both frontend and backend development, I've worked on various projects ranging from small business applications to large-scale enterprise solutions.",
+  'about.bio.p3':
+    "When I'm not coding, I enjoy contributing to open-source projects, sharing knowledge with the developer community, and exploring new technologies.",
   'about.skills': 'Skills & Expertise',
   'about.timeline': 'Career Timeline',
   'about.getInTouch': 'Get In Touch',
@@ -41,7 +45,8 @@ export const en = {
   'contact.success': 'Your message has been sent!',
   'contact.error': 'Something went wrong. Please try again.',
   'contact.getInTouch': 'Get in Touch',
-  'contact.reachOut': 'Feel free to reach out if you have any questions, project inquiries, or just want to connect!',
+  'contact.reachOut':
+    'Feel free to reach out if you have any questions, project inquiries, or just want to connect!',
   'contact.emailLabel': 'Email',
   'contact.connect': 'Connect',
   'contact.connectText': 'You can also find me on these platforms:',
@@ -50,11 +55,14 @@ export const en = {
   // Work experiences
   'work.techCompany.title': 'Senior Software Developer',
   'work.techCompany.name': 'Tech Company Inc.',
-  'work.techCompany.description': 'Leading development of web applications using React, Node.js and modern cloud infrastructure. Mentoring junior developers and implementing best practices across projects.',
+  'work.techCompany.description':
+    'Leading development of web applications using React, Node.js and modern cloud infrastructure. Mentoring junior developers and implementing best practices across projects.',
   'work.digitalSolutions.title': 'Full Stack Developer',
   'work.digitalSolutions.name': 'Digital Solutions Ltd.',
-  'work.digitalSolutions.description': 'Developed and maintained web applications using Laravel, PHP, and Vue.js. Implemented database optimizations and API integrations for various client projects.',
+  'work.digitalSolutions.description':
+    'Developed and maintained web applications using Laravel, PHP, and Vue.js. Implemented database optimizations and API integrations for various client projects.',
   'work.creativeWeb.title': 'Web Developer',
   'work.creativeWeb.name': 'Creative Web Agency',
-  'work.creativeWeb.description': 'Built responsive websites and e-commerce solutions using modern web technologies. Collaborated with designers to implement UI/UX improvements.',
+  'work.creativeWeb.description':
+    'Built responsive websites and e-commerce solutions using modern web technologies. Collaborated with designers to implement UI/UX improvements.',
 };
