@@ -1,17 +1,16 @@
-import { Menu, Moon, Sun, X } from 'lucide-react';
+import { Menu, Moon, Sun } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 
 import React from 'react';
 
 import { Button } from '@/components/ui/button';
-import { Drawer, DrawerClose, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
+import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/tooltip';
 
 import { useIsMobile } from '@/hooks/use-mobile';
 
@@ -27,9 +26,9 @@ const Header: React.FC = () => {
 
   const navLinks = [
     { name: t('nav.home'), path: '/' },
-    { name: t('nav.projects'), path: '/projects' },
-    { name: t('nav.about'), path: '/about' },
-    { name: t('nav.contact'), path: '/contact' },
+    // { name: t('nav.projects'), path: '/projects' },
+    // { name: t('nav.about'), path: '/about' },
+    // { name: t('nav.contact'), path: '/contact' },
   ];
 
   const handleNavigation = (path: string) => {
@@ -51,10 +50,9 @@ const Header: React.FC = () => {
           Tharlei
         </Link>
 
-        {/* Desktop Navigation */}
         {!isMobile && (
           <nav className="flex space-x-6">
-            {navLinks.map(link => (
+            {/* {navLinks.map(link => (
               <Link
                 key={link.path}
                 to={link.path}
@@ -68,12 +66,11 @@ const Header: React.FC = () => {
               >
                 {link.name}
               </Link>
-            ))}
+            ))} */}
           </nav>
         )}
 
         <div className="flex items-center space-x-2">
-          {/* Language Switcher with improved dropdown */}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
               <Button
@@ -117,16 +114,9 @@ const Header: React.FC = () => {
                   <Menu className="h-5 w-5" />
                 </Button>
               </DrawerTrigger>
+              <DrawerTitle></DrawerTitle>
               <DrawerContent direction="right" className="left-auto right-0 w-[280px] rounded-l-lg">
                 <div className="px-4 py-6">
-                  <div className="mb-6 flex items-center justify-between">
-                    <h3 className="text-lg font-medium">Menu</h3>
-                    <DrawerClose asChild>
-                      <Button variant="ghost" size="icon">
-                        <X className="h-4 w-4" />
-                      </Button>
-                    </DrawerClose>
-                  </div>
                   <nav className="flex flex-col space-y-4">
                     {navLinks.map(link => (
                       <Button
