@@ -101,7 +101,7 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
   elasticsearch: {
     type: 'svg',
     name: 'Elasticsearch',
-    slug: 'elasticsearch',
+    slug: 'elastic',
   },
 
   // APIs & Tools
@@ -126,6 +126,21 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
     type: 'svg',
     name: 'AWS',
     slug: 'amazon',
+  },
+  lambda: {
+    type: 'svg',
+    name: 'Lambda',
+    slug: 'awslambda',
+  },
+  kibana: {
+    type: 'svg',
+    name: 'Kibana',
+    slug: 'kibana',
+  },
+  minio: {
+    type: 'svg',
+    name: 'MinIO',
+    slug: 'minio',
   },
   gcp: {
     type: 'svg',
@@ -180,5 +195,16 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
     type: 'svg',
     name: 'RabbitMQ',
     slug: 'rabbitmq',
+  },
+
+  jira: {
+    type: 'svg',
+    name: 'Jira',
+    slug: 'jira',
+  },
+  slack: {
+    type: 'svg',
+    name: 'Slack',
+    slug: 'slack',
   },
 };
