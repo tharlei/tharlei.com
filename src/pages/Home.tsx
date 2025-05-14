@@ -1,9 +1,5 @@
-import { ArrowRight, Github, Linkedin, Mail } from 'lucide-react';
-import { Link } from 'react-router-dom';
-
+import { Github, Linkedin, Mail } from 'lucide-react';
 import { useState } from 'react';
-
-import { Button } from '@/components/ui/button';
 
 import { techIconsConfig } from '@/lib/tech-icons';
 
@@ -12,11 +8,9 @@ import TechIcon from '../components/TechIcon';
 import TypedText from '../components/TypedText';
 import Layout from '../components/layout/Layout';
 import { useLocale } from '../contexts/LocaleContext';
-import { useIsMobile } from '../hooks/use-mobile';
 
 const Home = () => {
   const { t } = useLocale();
-  const isMobile = useIsMobile();
   const [techs] = useState(Object.keys(techIconsConfig).sort(() => Math.random() - 0.5));
 
   const roles = [t('home.role.web'), t('home.role.back'), t('home.role.front')];
@@ -44,7 +38,7 @@ const Home = () => {
 
               <p className="text-lg text-muted-foreground">{t('home.bio')}</p>
 
-              <div className="flex flex-wrap justify-center gap-4 pt-2 md:justify-start">
+              {/* <div className="flex flex-wrap justify-center gap-4 pt-2 md:justify-start">
                 <Button asChild>
                   <Link to="/projects">
                     {t('projects.title')} <ArrowRight className="ml-2 h-4 w-4" />
@@ -53,7 +47,7 @@ const Home = () => {
                 <Button variant="outline" asChild>
                   <Link to="/contact">{t('contact.title')}</Link>
                 </Button>
-              </div>
+              </div> */}
 
               <div className="flex justify-center space-x-4 pt-4 md:justify-start">
                 <a
@@ -65,7 +59,7 @@ const Home = () => {
                   <Github size={24} />
                 </a>
                 <a
-                  href="https://linkedin.com/in/tharlei"
+                  href="https://linkedin.com/in/tharleialeixo"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-muted-foreground transition-colors hover:text-foreground"
@@ -73,7 +67,7 @@ const Home = () => {
                   <Linkedin size={24} />
                 </a>
                 <a
-                  href="mailto:contact@tharlei.dev"
+                  href="mailto:tharlei_aleixo@hotmail.com"
                   className="text-muted-foreground transition-colors hover:text-foreground"
                 >
                   <Mail size={24} />

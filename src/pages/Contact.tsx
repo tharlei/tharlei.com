@@ -74,8 +74,11 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="font-medium">{t('contact.emailLabel')}</h3>
-                    <a href="mailto:contact@tharlei.dev" className="text-primary hover:underline">
-                      contact@tharlei.dev
+                    <a
+                      href="mailto:tharlei_aleixo@hotmail.com"
+                      className="text-primary hover:underline"
+                    >
+                      tharlei_aleixo@hotmail.com
                     </a>
                   </div>
                 </CardContent>
@@ -92,7 +95,7 @@ const Contact = () => {
                   </Button>
                   <Button variant="outline" asChild>
                     <a
-                      href="https://linkedin.com/in/tharlei"
+                      href="https://linkedin.com/in/tharleialeixo"
                       target="_blank"
                       rel="noopener noreferrer"
                     >

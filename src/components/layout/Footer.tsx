@@ -30,7 +30,7 @@ const Footer: React.FC = () => {
               <Github size={20} />
             </a>
             <a
-              href="https://linkedin.com/in/tharlei"
+              href="https://linkedin.com/in/tharleialeixo"
               target="_blank"
               rel="noopener noreferrer"
               className="text-muted-foreground transition-colors hover:text-foreground"
@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:contact@tharlei.dev"
+              href="mailto:tharlei_aleixo@hotmail.com"
               className="text-muted-foreground transition-colors hover:text-foreground"
               aria-label="Email"
             >
