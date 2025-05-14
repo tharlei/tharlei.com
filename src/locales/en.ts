@@ -65,4 +65,5 @@ export const en = {
   'work.creativeWeb.name': 'Creative Web Agency',
   'work.creativeWeb.description':
     'Built responsive websites and e-commerce solutions using modern web technologies. Collaborated with designers to implement UI/UX improvements.',
+  'footer.copyright': 'All rights reserved.',
 };

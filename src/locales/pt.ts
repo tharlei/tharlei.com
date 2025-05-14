@@ -65,4 +65,5 @@ export const pt = {
   'work.creativeWeb.name': 'Agência Web Criativa',
   'work.creativeWeb.description':
     'Construí sites responsivos e soluções de e-commerce usando tecnologias web modernas. Colaborei com designers para implementar melhorias de UI/UX.',
+  'footer.copyright': 'Todos os direitos reservados.',
 };

@@ -1,4 +1,4 @@
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react';
+import { Github, Linkedin, Mail } from 'lucide-react';
 
 import React from 'react';
 
@@ -14,7 +14,7 @@ const Footer: React.FC = () => {
         <div className="flex flex-col items-center justify-between md:flex-row">
           <div className="mb-4 md:mb-0">
             <p className="text-sm text-muted-foreground">
-              © {currentYear} Tharlei. All rights reserved.
+              © {currentYear} Tharlei - {t('footer.copyright')}
             </p>
           </div>
 
@@ -37,15 +37,6 @@ const Footer: React.FC = () => {
               aria-label="LinkedIn"
             >
               <Linkedin size={20} />
-            </a>
-            <a
-              href="https://twitter.com/tharleidev"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-muted-foreground transition-colors hover:text-foreground"
-              aria-label="Twitter"
-            >
-              <Twitter size={20} />
             </a>
             <a
               href="mailto:contact@tharlei.dev"
