@@ -139,18 +139,6 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
     category: 'tools',
   },
 
-  aws: {
-    type: 'svg',
-    name: 'AWS',
-    slug: 'amazon',
-    category: 'cloud',
-  },
-  lambda: {
-    type: 'svg',
-    name: 'Lambda',
-    slug: 'awslambda',
-    category: 'cloud',
-  },
   kibana: {
     type: 'svg',
     name: 'Kibana',
@@ -179,6 +167,24 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
     type: 'svg',
     name: 'Heroku',
     slug: 'heroku',
+    category: 'cloud',
+  },
+  ubuntu: {
+    type: 'svg',
+    name: 'Ubuntu',
+    slug: 'ubuntu',
+    category: 'devops',
+  },
+  netlify: {
+    type: 'svg',
+    name: 'Netlify',
+    slug: 'netlify',
+    category: 'cloud',
+  },
+  vercel: {
+    type: 'svg',
+    name: 'Vercel',
+    slug: 'vercel',
     category: 'cloud',
   },
   digitalocean: {
@@ -230,12 +236,6 @@ export const techIconsConfig: Record<string, TechIconConfig> = {
     type: 'svg',
     name: 'Jira',
     slug: 'jira',
-    category: 'tools',
-  },
-  slack: {
-    type: 'svg',
-    name: 'Slack',
-    slug: 'slack',
     category: 'tools',
   },
 };
