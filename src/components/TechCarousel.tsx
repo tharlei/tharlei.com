@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
 
 import { techIconsConfig } from '@/lib/tech-icons';
+import { useDynamicFavicon } from '@/hooks/useDynamicFavicon';
 
 import TechIcon from './TechIcon';
 
@@ -15,13 +16,18 @@ const TechCarousel: React.FC<TechCarouselProps> = ({ technologies, className }) 
   const [visibleTech, setVisibleTech] = useState<string | null>(technologies[0]);
   const [index, setIndex] = useState(0);
 
+  // Usa o hook personalizado para gerenciar o favicon
+  useDynamicFavicon({ technologies, interval: 2000 });
+
   useEffect(() => {
     const intervalId = setInterval(() => {
       setVisibleTech(null);
 
       setTimeout(() => {
-        setIndex(prevIndex => (prevIndex + 1) % technologies.length);
-        setVisibleTech(technologies[(index + 1) % technologies.length]);
+        const nextIndex = (index + 1) % technologies.length;
+        const nextTech = technologies[nextIndex];
+        setIndex(nextIndex);
+        setVisibleTech(nextTech);
       }, 300);
     }, 2000);
 

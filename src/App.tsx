@@ -7,6 +7,7 @@ import { TooltipProvider } from '@/components/ui/tooltip';
 
 import { LocaleProvider } from './contexts/LocaleContext';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { FaviconProvider } from './contexts/FaviconContext';
 import About from './pages/About';
 import Contact from './pages/Contact';
 import Home from './pages/Home';
@@ -20,19 +21,21 @@ const App = () => {
     <QueryClientProvider client={queryClient}>
       <ThemeProvider>
         <LocaleProvider>
-          <TooltipProvider>
-            <Toaster />
-            <Sonner position="top-right" />
-            <BrowserRouter>
-              <Routes>
-                <Route path="/" element={<Home />} />
-                <Route path="/projects" element={<Projects />} />
-                <Route path="/about" element={<About />} />
-                <Route path="/contact" element={<Contact />} />
-                <Route path="*" element={<NotFound />} />
-              </Routes>
-            </BrowserRouter>
-          </TooltipProvider>
+          <FaviconProvider>
+            <TooltipProvider>
+              <Toaster />
+              <Sonner position="top-right" />
+              <BrowserRouter>
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                  <Route path="/projects" element={<Projects />} />
+                  <Route path="/about" element={<About />} />
+                  <Route path="/contact" element={<Contact />} />
+                  <Route path="*" element={<NotFound />} />
+                </Routes>
+              </BrowserRouter>
+            </TooltipProvider>
+          </FaviconProvider>
         </LocaleProvider>
       </ThemeProvider>
     </QueryClientProvider>
