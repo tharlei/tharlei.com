@@ -8,6 +8,8 @@ export const en = {
   'home.role.web': 'web developer',
   'home.role.back': 'back developer',
   'home.role.front': 'front developer',
+  'home.role.full': 'full-stack developer',
+  'home.role.tech_lead': 'tech lead',
   'home.technologies': 'Technologies I work with',
   'home.bio':
     "I'm a software developer passionate about creating robust and scalable web applications.",

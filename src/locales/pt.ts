@@ -8,6 +8,8 @@ export const pt = {
   'home.role.web': 'desenvolvedor web',
   'home.role.back': 'desenvolvedor back-end',
   'home.role.front': 'desenvolvedor front-end',
+  'home.role.full': 'desenvolvedor full-stack',
+  'home.role.tech_lead': 'líder técnico',
   'home.technologies': 'Tecnologias com as quais trabalho',
   'home.bio':
     'Sou um desenvolvedor de software apaixonado por criar aplicações web robustas e escaláveis.',

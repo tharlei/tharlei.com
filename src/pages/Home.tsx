@@ -13,7 +13,13 @@ const Home = () => {
   const { t } = useLocale();
   const [techs] = useState(Object.keys(techIconsConfig).sort(() => Math.random() - 0.5));
 
-  const roles = [t('home.role.web'), t('home.role.back'), t('home.role.front')];
+  const roles = [
+    t('home.role.web'),
+    t('home.role.back'),
+    t('home.role.front'),
+    t('home.role.full'),
+    t('home.role.tech_lead'),
+  ];
 
   return (
     <Layout>
