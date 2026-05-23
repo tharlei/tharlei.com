@@ -1,142 +1,125 @@
-import { Menu, Moon, Sun } from 'lucide-react';
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link, NavLink } from 'react-router-dom';
+import { useApp } from '../../context/AppContext';
+import { useBodyScrollLock } from '../../hooks/useBodyScrollLock';
+import { Icon, FlagBR, FlagUS } from '../icons';
 
-import React from 'react';
+const LINKS = [
+  { to: '/', key: 'home', end: true },
+  { to: '/projects', key: 'projects', end: false },
+  { to: '/experience', key: 'experience', end: false },
+] as const;
 
-import { Button } from '@/components/ui/button';
-import { Drawer, DrawerContent, DrawerTitle, DrawerTrigger } from '@/components/ui/drawer';
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+function NavLinks({ onNavigate }: { onNavigate?: () => void }) {
+  const { t } = useApp();
+  return (
+    <>
+      {LINKS.map(l => (
+        <NavLink
+          key={l.key}
+          to={l.to}
+          end={l.end}
+          className={({ isActive }) => `nav__link ${isActive ? 'is-active' : ''}`}
+          onClick={onNavigate}
+        >
+          <span>{t.nav[l.key]}</span>
+        </NavLink>
+      ))}
+    </>
+  );
+}
 
-import { useIsMobile } from '@/hooks/use-mobile';
+function LangButton() {
+  const { lang, setLang, t } = useApp();
+  return (
+    <button
+      className="icon-btn flag-btn"
+      onClick={() => setLang(lang === 'pt' ? 'en' : 'pt')}
+      aria-label={t.switchLang}
+      title={t.switchLang}
+    >
+      {lang === 'pt' ? <FlagBR /> : <FlagUS />}
+    </button>
+  );
+}
 
-import { useLocale } from '../../contexts/LocaleContext';
-import { useTheme } from '../../contexts/ThemeContext';
+function ThemeButton() {
+  const { theme, setTheme, t } = useApp();
+  return (
+    <button
+      className="icon-btn"
+      onClick={() => setTheme(theme === 'dark' ? 'light' : 'dark')}
+      aria-label={t.toggleTheme}
+      title={t.toggleTheme}
+    >
+      {theme === 'dark' ? <Icon.Sun /> : <Icon.Moon />}
+    </button>
+  );
+}
 
-const Header: React.FC = () => {
-  const { locale, setLocale, t } = useLocale();
-  const { theme, toggleTheme } = useTheme();
-  const isMobile = useIsMobile();
-  const navigate = useNavigate();
-  const location = useLocation();
+export function Header() {
+  const { t } = useApp();
+  const [open, setOpen] = useState(false);
+  useBodyScrollLock(open);
 
-  const navLinks = [
-    { name: t('nav.home'), path: '/' },
-    // { name: t('nav.projects'), path: '/projects' },
-    // { name: t('nav.about'), path: '/about' },
-    // { name: t('nav.contact'), path: '/contact' },
-  ];
-
-  const handleNavigation = (path: string) => {
-    if (location.pathname !== path) {
-      document.body.classList.add('page-transitioning');
-      setTimeout(() => {
-        navigate(path);
-        setTimeout(() => {
-          document.body.classList.remove('page-transitioning');
-        }, 100);
-      }, 300);
-    }
-  };
+  useEffect(() => {
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') setOpen(false);
+    };
+    window.addEventListener('keydown', onKey);
+    return () => window.removeEventListener('keydown', onKey);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b bg-background/80 backdrop-blur-sm">
-      <div className="container mx-auto flex items-center justify-between px-4 py-3">
-        <Link to="/" className="text-xl font-bold tracking-tighter">
-          Tharlei
-        </Link>
+    <>
+      <header className="header">
+        <div className="header__inner container">
+          <Link to="/" className="brand" aria-label="Tharlei">
+            <span className="brand__dot" />
+            <span>Tharlei</span>
+          </Link>
 
-        {!isMobile && (
-          <nav className="flex space-x-6">
-            {/* {navLinks.map(link => (
-              <Link
-                key={link.path}
-                to={link.path}
-                className="transition-colors hover:text-primary"
-                onClick={e => {
-                  if (location.pathname !== link.path) {
-                    e.preventDefault();
-                    handleNavigation(link.path);
-                  }
-                }}
-              >
-                {link.name}
-              </Link>
-            ))} */}
+          <nav className="header__nav" aria-label="Primary">
+            <NavLinks />
           </nav>
-        )}
 
-        <div className="flex items-center space-x-2">
-          <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-              <Button
-                variant="ghost"
-                size="icon"
-                className="flex h-9 w-9 items-center justify-center overflow-hidden rounded-md p-0 hover:bg-accent"
-              >
-                <span className="text-base">{locale === 'en' ? '🇺🇸' : '🇧🇷'}</span>
-              </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-40">
-              <DropdownMenuItem
-                className="flex cursor-pointer items-center gap-2"
-                onClick={() => setLocale('en')}
-              >
-                <span className="text-base">🇺🇸</span>
-                <span>English</span>
-                {locale === 'en' && <span className="ml-auto">✓</span>}
-              </DropdownMenuItem>
-              <DropdownMenuItem
-                className="flex cursor-pointer items-center gap-2"
-                onClick={() => setLocale('pt')}
-              >
-                <span className="text-base">🇧🇷</span>
-                <span>Português</span>
-                {locale === 'pt' && <span className="ml-auto">✓</span>}
-              </DropdownMenuItem>
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <div className="header__controls">
+            <LangButton />
+            <ThemeButton />
+          </div>
 
-          {/* Theme Toggle */}
-          <Button variant="ghost" size="icon" onClick={toggleTheme}>
-            {theme === 'dark' ? <Sun className="h-4 w-4" /> : <Moon className="h-4 w-4" />}
-          </Button>
-
-          {/* Mobile Menu Button with Drawer */}
-          {isMobile && (
-            <Drawer direction="right">
-              <DrawerTrigger asChild>
-                <Button variant="ghost" size="icon">
-                  <Menu className="h-5 w-5" />
-                </Button>
-              </DrawerTrigger>
-              <DrawerTitle></DrawerTitle>
-              <DrawerContent direction="right" className="left-auto right-0 w-[280px] rounded-l-lg">
-                <div className="px-4 py-6">
-                  <nav className="flex flex-col space-y-4">
-                    {navLinks.map(link => (
-                      <Button
-                        key={link.path}
-                        variant="ghost"
-                        className="justify-start text-lg"
-                        onClick={() => handleNavigation(link.path)}
-                      >
-                        {link.name}
-                      </Button>
-                    ))}
-                  </nav>
-                </div>
-              </DrawerContent>
-            </Drawer>
-          )}
+          <button
+            className="icon-btn header__burger"
+            onClick={() => setOpen(true)}
+            aria-label={t.nav.menu}
+            aria-expanded={open}
+          >
+            <Icon.Menu />
+          </button>
         </div>
-      </div>
-    </header>
-  );
-};
+      </header>
 
-export default Header;
+      <div className={`drawer ${open ? 'is-open' : ''}`} aria-hidden={!open}>
+        <div className="drawer__backdrop" onClick={() => setOpen(false)} />
+        <aside className="drawer__panel" role="dialog" aria-modal="true">
+          <div className="drawer__head">
+            <span className="brand">
+              <span className="brand__dot" />
+              <span>Tharlei</span>
+            </span>
+            <button className="icon-btn" onClick={() => setOpen(false)} aria-label={t.nav.close}>
+              <Icon.Close />
+            </button>
+          </div>
+          <nav className="drawer__nav" aria-label="Mobile">
+            <NavLinks onNavigate={() => setOpen(false)} />
+          </nav>
+          <div className="drawer__controls">
+            <LangButton />
+            <ThemeButton />
+          </div>
+        </aside>
+      </div>
+    </>
+  );
+}
