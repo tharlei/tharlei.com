@@ -1,4 +1,4 @@
-import { createContext, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import type { ReactNode } from 'react';
 import { I18N } from '../data/i18n';
 import type { Dict, Lang } from '../data/i18n';
@@ -15,22 +15,54 @@ interface AppContextValue {
 
 const AppContext = createContext<AppContextValue | null>(null);
 
+/* First visit only: geo-locate the visitor. Brazil → Portuguese, anywhere
+   else → English. The result is persisted to localStorage, so the lookup
+   runs once per browser and the manual flag toggle wins afterwards. */
+async function detectLang(): Promise<Lang> {
+  try {
+    const res = await fetch('https://api.country.is/');
+    const data = (await res.json()) as { country?: string };
+    return data.country === 'BR' ? 'pt' : 'en';
+  } catch {
+    return 'pt';
+  }
+}
+
 export function AppProvider({ children }: { children: ReactNode }) {
-  const [lang, setLang] = useState<Lang>(() => (localStorage.getItem('lang') as Lang) || 'pt');
+  const [lang, setLangState] = useState<Lang>(() => (localStorage.getItem('lang') as Lang) || 'pt');
   const [theme, setTheme] = useState<Theme>(
     () => (localStorage.getItem('theme') as Theme) || 'dark'
   );
 
+  const setLang = useCallback((next: Lang) => {
+    localStorage.setItem('lang', next);
+    setLangState(next);
+  }, []);
+
+  // Run geo detection only when the visitor has no stored preference yet.
+  useEffect(() => {
+    if (localStorage.getItem('lang')) return;
+    let active = true;
+    detectLang().then(detected => {
+      if (active) setLang(detected);
+    });
+    return () => {
+      active = false;
+    };
+  }, [setLang]);
+
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
-    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
-    localStorage.setItem('lang', lang);
     localStorage.setItem('theme', theme);
-  }, [lang, theme]);
+  }, [theme]);
+
+  useEffect(() => {
+    document.documentElement.setAttribute('lang', lang === 'pt' ? 'pt-BR' : 'en');
+  }, [lang]);
 
   const value = useMemo<AppContextValue>(
     () => ({ lang, setLang, theme, setTheme, t: I18N[lang] }),
-    [lang, theme]
+    [lang, setLang, theme]
   );
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
