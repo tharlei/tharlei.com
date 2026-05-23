@@ -38,10 +38,4 @@ COPY .docker/production/nginx.conf /etc/nginx/conf.d/default.conf
 # Ship only the built assets.
 COPY --from=build /app/dist /usr/share/nginx/html
 
-EXPOSE 8080
-
-# Liveness probe (busybox wget ships in the alpine image).
-HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
-  CMD wget -qO- http://127.0.0.1:8080/ >/dev/null 2>&1 || exit 1
-
-# Base image already runs `nginx -g 'daemon off;'` in the foreground.
+EXPOSE 80
