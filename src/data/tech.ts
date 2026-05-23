@@ -25,10 +25,7 @@ export const TECH: Record<string, TechEntry> = {
   github: { name: 'GitHub', url: 'https://cdn.simpleicons.org/github' },
   gitlab: { name: 'GitLab', url: 'https://cdn.simpleicons.org/gitlab' },
   rabbitmq: { name: 'RabbitMQ', url: 'https://cdn.simpleicons.org/rabbitmq' },
-  aws: {
-    name: 'AWS',
-    url: 'https://cdn.jsdelivr.net/gh/devicons/devicon@v2.16.0/icons/amazonwebservices/amazonwebservices-original.svg',
-  },
+  aws: { name: 'AWS', url: '/aws.svg' },
   gcp: { name: 'Google Cloud', url: 'https://cdn.simpleicons.org/googlecloud' },
   postman: { name: 'Postman', url: 'https://cdn.simpleicons.org/postman' },
   jest: { name: 'Jest', url: 'https://cdn.simpleicons.org/jest' },

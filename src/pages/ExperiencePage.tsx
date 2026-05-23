@@ -1,12 +1,13 @@
 import { useApp } from '../context/AppContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { CAREER } from '../data/career';
 import { CompanyBlock } from '../components/experience/CompanyBlock';
 import { EducationSection } from '../components/experience/EducationSection';
 import { CertsSection } from '../components/experience/CertsSection';
-import { ResumeButton } from '../components/experience/ResumeButton';
 
 export function ExperiencePage() {
   const { t } = useApp();
+  usePageMeta(t.seo.experience);
   return (
     <main>
       <section className="page-hero">
@@ -14,9 +15,6 @@ export function ExperiencePage() {
           <p className="page-hero__eyebrow">{t.experience.eyebrow}</p>
           <h1 className="page-hero__title">{t.experience.title}</h1>
           <p className="page-hero__subtitle">{t.experience.subtitle}</p>
-          <div className="page-hero__cta">
-            <ResumeButton />
-          </div>
         </div>
       </section>
 

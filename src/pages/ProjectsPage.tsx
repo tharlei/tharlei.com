@@ -1,9 +1,11 @@
 import { useApp } from '../context/AppContext';
+import { usePageMeta } from '../hooks/usePageMeta';
 import { PROJECTS } from '../data/projects';
 import { ProjectCard } from '../components/projects/ProjectCard';
 
 export function ProjectsPage() {
   const { t } = useApp();
+  usePageMeta(t.seo.projects);
   return (
     <main>
       <section className="page-hero">

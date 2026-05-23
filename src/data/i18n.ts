@@ -22,6 +22,23 @@ export const I18N = {
     ],
     description:
       'Desenvolvedor de software apaixonado por criar aplicações web robustas e escaláveis.',
+    seo: {
+      home: {
+        title: 'Tharlei Aleixo — Desenvolvedor Full Stack',
+        description:
+          'Desenvolvedor full stack com quase uma década criando aplicações web robustas e escaláveis com Node.js, React, Vue e PHP.',
+      },
+      projects: {
+        title: 'Projetos — Tharlei Aleixo',
+        description:
+          'Plataformas em produção, sistemas críticos e experiências em pontos de venda construídas por Tharlei Aleixo.',
+      },
+      experience: {
+        title: 'Experiência — Tharlei Aleixo',
+        description:
+          'Quase uma década construindo software, do estágio a sistemas em produção com milhões de acessos diários.',
+      },
+    },
     techEyebrow: 'Stack',
     techTitle: 'Tecnologias com as quais trabalho',
     techSubtitle:
@@ -98,6 +115,23 @@ export const I18N = {
     ],
     description:
       "I'm a software developer passionate about creating robust and scalable web applications.",
+    seo: {
+      home: {
+        title: 'Tharlei Aleixo — Full Stack Developer',
+        description:
+          'Full stack developer with nearly a decade building robust, scalable web applications with Node.js, React, Vue, and PHP.',
+      },
+      projects: {
+        title: 'Projects — Tharlei Aleixo',
+        description:
+          'Production platforms, mission-critical systems, and in-branch experiences built by Tharlei Aleixo.',
+      },
+      experience: {
+        title: 'Experience — Tharlei Aleixo',
+        description:
+          'Nearly a decade shipping software, from an internship to production systems serving millions of daily visits.',
+      },
+    },
     techEyebrow: 'Stack',
     techTitle: 'Technologies I work with',
     techSubtitle:
