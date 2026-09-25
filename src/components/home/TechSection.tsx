@@ -2,9 +2,14 @@ import { useApp } from '../../context/AppContext';
 import { MARQUEE_KEYS } from '../../data/tech';
 import { TechChip } from '../common/TechChip';
 
-const MID = Math.ceil(MARQUEE_KEYS.length / 2);
-const ROW_A = MARQUEE_KEYS.slice(0, MID);
-const ROW_B = MARQUEE_KEYS.slice(MID);
+const SHUFFLED = [...MARQUEE_KEYS];
+for (let i = SHUFFLED.length - 1; i > 0; i--) {
+  const j = Math.floor(Math.random() * (i + 1));
+  [SHUFFLED[i], SHUFFLED[j]] = [SHUFFLED[j], SHUFFLED[i]];
+}
+const MID = Math.ceil(SHUFFLED.length / 2);
+const ROW_A = SHUFFLED.slice(0, MID);
+const ROW_B = SHUFFLED.slice(MID);
 const DUP_A = [...ROW_A, ...ROW_A];
 const DUP_B = [...ROW_B, ...ROW_B];
 

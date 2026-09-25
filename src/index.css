@@ -416,6 +416,9 @@
     color: var(--text-dim);
     margin: 22px 0 0;
   }
+  .hero__cta {
+    margin-top: 28px;
+  }
   .hero__socials {
     display: flex;
     gap: 10px;

@@ -19,14 +19,16 @@ export const I18N = {
       'tech lead',
       'desenvolvedor web',
       'desenvolvedor full stack',
+      'engenheiro de software',
     ],
     description:
       'Desenvolvedor de software apaixonado por criar aplicações web robustas e escaláveis.',
+    heroCta: 'Ver projetos',
     seo: {
       home: {
-        title: 'Tharlei Aleixo — Desenvolvedor Full Stack',
+        title: 'Tharlei Aleixo — Desenvolvedor de Software',
         description:
-          'Desenvolvedor full stack com quase uma década criando aplicações web robustas e escaláveis com Node.js, React, Vue e PHP.',
+          'Desenvolvedor de software com quase uma década criando aplicações web robustas e escaláveis com Node.js, React, Vue e PHP.',
       },
       projects: {
         title: 'Projetos — Tharlei Aleixo',
@@ -112,14 +114,16 @@ export const I18N = {
       'tech lead',
       'web developer',
       'full stack developer',
+      'software engineer',
     ],
     description:
       "I'm a software developer passionate about creating robust and scalable web applications.",
+    heroCta: 'View projects',
     seo: {
       home: {
-        title: 'Tharlei Aleixo — Full Stack Developer',
+        title: 'Tharlei Aleixo — Software Developer',
         description:
-          'Full stack developer with nearly a decade building robust, scalable web applications with Node.js, React, Vue, and PHP.',
+          'Software developer with nearly a decade building robust, scalable web applications with Node.js, React, Vue, and PHP.',
       },
       projects: {
         title: 'Projects — Tharlei Aleixo',
